@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <h2>Verify OTP 🔐</h2>
+        <p class="info">Enter the 6-digit code sent to your email</p>
+
+        <div class="otp-box">
+            <input type="text" maxlength="1" oninput="moveNext(this, event)">
+            <input type="text" maxlength="1" oninput="moveNext(this, event)">
+            <input type="text" maxlength="1" oninput="moveNext(this, event)">
+            <input type="text" maxlength="1" oninput="moveNext(this, event)">
+            <input type="text" maxlength="1" oninput="moveNext(this, event)">
+            <input type="text" maxlength="1" oninput="moveNext(this, event)">
+        </div>
+
+
+        <button>Verify</button>
+    </div>
+</div>
+
+    <script>
+        function moveNext(current, event) {
+            if (current.value.length === 1) {
+                const next = current.nextElementSibling;
+                if (next) {
+                    next.focus();
+                }
+            }
+        
+            // Move back on backspace
+            if (event.inputType === "deleteContentBackward") {
+                const prev = current.previousElementSibling;
+                if (prev) {
+                    prev.focus();
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
