@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
@@ -15,7 +15,8 @@
         <form method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
             <input type="email" name="email" placeholder="Email Address" required>
-                
+            <input type="text" name="name" placeholder="Username" required>
+    
             <input 
                 type="tel" 
                 placeholder="Phone Number" 

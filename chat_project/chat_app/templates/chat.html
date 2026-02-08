@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat UI</title>
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Chats</h3>
+
+            <div class="profile-area">
+                <img src="{% static 'images/testimage.png' %}" id="myProfile">
+                <div class="menu" id="leftMenu">⋮</div>
+            </div>
+
+            <div class="popup-menu" id="leftPopup">
+                <div>Block list</div>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search or start new chat">
+        </div>
+
+        <div class="chat-list">
+            <div class="chat-item active">User 1</div>
+            <div class="chat-item">User 2</div>
+        </div>
+    </div>
+
+    <!-- RIGHT CHAT -->
+    <div class="chat-section">
+
+        <div class="chat-header">
+            <div class="chat-user">
+                <img src="{% static 'images/testimage.png' %}">
+                <span id="chatUserName">User 1</span>
+            </div>
+
+            <div class="chat-actions">
+                <span id="searchBtn">🔍</span>
+                <span class="menu" id="rightMenu">⋮</span>
+            </div>
+
+            <input type="text" id="chatSearch" placeholder="Search messages">
+
+            <div class="popup-menu" id="rightPopup">
+                <div>View Profile</div>
+                <div>Block User</div>
+            </div>
+        </div>
+
+        <div class="messages" id="messages"></div>
+
+        <div class="send-box">
+            <input type="text" id="msgInput" placeholder="Type a message">
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- IMAGE MODAL -->
+<div class="image-modal" id="imageModal">
+    <span class="close">✖</span>
+    <img src="{% static 'images/testimage.png' %}">
+</div>
+
+<script src="{% static 'js/chat.js' %}"></script>
+</body>
+</html>
