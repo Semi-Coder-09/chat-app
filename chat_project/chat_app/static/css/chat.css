@@ -116,23 +116,34 @@ body {
 .messages {
     flex: 1;
     padding: 15px;
-    overflow-y: 20%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .msg {
-    max-width: 60%;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    width: fit-content;         
+    max-width: 65%;              
+    padding: 10px 14px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-size: 14px;
 }
 
+
 .received {
-    background: white;
+    background: #ffffff;
+    align-self: flex-start;      
+    border-top-left-radius: 0;
 }
+
 
 .sent {
     background: #d9fdd3;
-    margin-left: auto;
+    align-self: flex-end;        
+    border-top-right-radius: 0;
 }
 
 .send-box {
