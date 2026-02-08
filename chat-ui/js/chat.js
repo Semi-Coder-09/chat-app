@@ -27,7 +27,11 @@ function loadChat(user) {
         div.textContent = msg.text;
         messagesBox.appendChild(div);
     });
+
+    // 🔽 Auto scroll to bottom
+    messagesBox.scrollTop = messagesBox.scrollHeight;
 }
+
 
 chatItems.forEach(item => {
     item.addEventListener("click", () => {
