@@ -31,19 +31,32 @@
             <input type="text" placeholder="Search or start new chat">
         </div>
 
+        <!-- CHAT LIST -->
         <div class="chat-list">
-            <div class="chat-item active">User 1</div>
-            <div class="chat-item">User 2</div>
+            {% for user in users %}
+                {% if user.id != logged_in_user_id %}
+                    <div class="chat-item" data-user-id="{{ user.id }}">
+                        {{ user.name }}
+                    </div>
+                {% else %}
+                    <div class="chat-item self-user">
+                        {{ user.name }}
+                        <span style="color: gray;"> (You)</span>
+                        <span class="active-user-indicator" title="Online"></span>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
+
     </div>
 
-    <!-- RIGHT CHAT -->
+    <!-- RIGHT CHAT SECTION -->
     <div class="chat-section">
 
         <div class="chat-header">
             <div class="chat-user">
                 <img src="{% static 'images/testimage.png' %}">
-                <span id="chatUserName">User 1</span>
+                <span id="chatUserName">Select a chat</span>
             </div>
 
             <div class="chat-actions">
@@ -59,13 +72,23 @@
             </div>
         </div>
 
+        <!-- WELCOME SCREEN -->
+        {% comment %} <div class="welcome-screen" id="welcomeScreen">
+            <h2>Welcome to Chat 👋</h2>
+            <p>Select a chat to start messaging</p>
+        </div> {% endcomment %}
+
+        <!-- MESSAGES -->
         <div class="messages" id="messages"></div>
 
+        <!-- SEND BOX -->
         <div class="send-box">
             <input type="text" id="msgInput" placeholder="Type a message">
             <button id="sendBtn">Send</button>
         </div>
+
     </div>
+
 </div>
 
 <!-- IMAGE MODAL -->
@@ -74,6 +97,10 @@
     <img src="{% static 'images/testimage.png' %}">
 </div>
 
+<script>
+    window.LOGGED_IN_USER_ID = "{{ logged_in_user_id|default:'' }}";
+</script>
 <script src="{% static 'js/chat.js' %}"></script>
+
 </body>
 </html>
