@@ -108,3 +108,30 @@ button:hover {
         transform: translateY(0);
     }
 }
+.chat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.chat-item.active {
+    font-weight: bold;
+}
+
+.active-user-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #25d366; /* WhatsApp green */
+    border-radius: 50%;
+}
+
+.you-text {
+    color: gray;
+    font-size: 12px;
+}
+.popup-menu .disabled {
+    cursor: not-allowed;
+    color: #999;
+}
