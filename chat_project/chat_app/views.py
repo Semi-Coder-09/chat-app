@@ -16,7 +16,13 @@ def signup(request):
         
     return render(request, 'signup.html')
 def chat(request):
-    return render(request, 'chat.html')
+    users = User_data.objects.all()
+    logged_in_user_id = request.session.get('user_id')
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return redirect('login') 
+    request.session['is_logged_in'] = True
+    return render(request, 'chat.html', {'users': users, 'logged_in_user_id': logged_in_user_id})
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -24,6 +30,7 @@ def login(request):
         # authenticate the user
         try:
             user = User_data.objects.get(email=email, password=password)
+            request.session['user_id'] = user.id  # Store user ID in session
             return redirect('chat')
         except User_data.DoesNotExist:
             return HttpResponse("Invalid email or password.")

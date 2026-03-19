@@ -223,3 +223,25 @@ body {
     font-size: 22px;
     cursor: pointer;
 }
+.welcome-screen {
+    height: calc(100% - 120px); /* adjust if needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    text-align: center;
+}
+
+.welcome-screen h2 {
+    margin-bottom: 8px;
+}
+
+.welcome-screen p {
+    font-size: 14px;
+}
+
+.popup-menu .disabled {
+    cursor: not-allowed;
+    color: #999;
+}
